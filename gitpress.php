@@ -80,24 +80,24 @@ function gitpressScripts() { ?>
     var gitrss = $('.gitrss');
 
     function fade() {
-        var current = $('.gitrss-active');
-        var currentIndex = gitrss.index(current),
-            nextIndex = currentIndex + 1;
-        
-        if (nextIndex >= gitrss.length) {
-            nextIndex = 0;
-        }
-        
-        var next = gitrss.eq(nextIndex);
-        
-        next.stop().fadeIn(1500, function() {
-            $(this).addClass('gitrss-active');
-        });
-        
-        current.stop().fadeOut(2500, function() {
-            $(this).removeClass('gitrss-active');
-            setTimeout(fade, 2500);
-        });
+      var current = $('.gitrss-active');
+      var currentIndex = gitrss.index(current),
+        nextIndex = currentIndex + 1;
+      
+      if (nextIndex >= gitrss.length) {
+        nextIndex = 0;
+      }
+      
+      var next = gitrss.eq(nextIndex);
+      
+      next.fadeIn(2500, function() {
+        $(this).addClass('gitrss-active');
+      });
+      
+      current.fadeOut(2500, function() {
+        $(this).removeClass('gitrss-active');
+        setTimeout(fade, 5000);
+      });
     }
 
     fade();
